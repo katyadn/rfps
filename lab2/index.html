@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>«Важливі Новини»</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-top: 110px;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+
+        aside {
+            margin: 20px auto;
+            padding: 16px 24px;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        aside h3 {
+            margin: 4px 0;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0 8px;
+        }
+
+        main>section,
+        main>article {
+            position: relative;
+            margin: 6px 0;
+            padding: 28px;
+            background: white;
+            border: 1px solid hsl(0, 0%, 85%);
+        }
+
+        #staff-table {
+            grid-column: 1 / -1;
+            overflow-x: auto;
+        }
+
+        #about {
+            grid-column: 1 / -1;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        main>hr {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        caption {
+            padding: 8px;
+            font-style: italic;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border: 1px solid hsl(0, 0%, 80%);
+            text-align: left;
+        }
+
+        th {
+            background: var(--wine);
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background: hsl(40, 25%, 96%);
+        }
+
+        #editor {
+            transition: transform .3s, box-shadow .3s, background-color .3s, border-color .3s;
+        }
+
+        #editor:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 6px 6px 0 rgba(107, 15, 26, .35);
+            background-color: hsl(40, 60%, 96%);
+            border-color: maroon;
+        }
+
+        #editor img {
+            float: left;
+            margin: 0 16px 8px 0;
+            border-radius: 55%;
+        }
+
+        #editor::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        #editor p:last-of-type::first-line {
+            font-style: italic;
+        }
+
+        footer address {
+            display: block;
+            width: fit-content;
+            margin: 8px auto;
+            padding: 8px 16px;
+            font-style: normal;
+            transition: transform .4s ease;
+        }
+
+        footer address:focus {
+            transform: scale(1.2);
+            transition-delay: 3s;
+            outline: 1px none maroon;
+        }
+
+        @media (max-width: 800px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="images/breaking-news.png" alt="Логотип новинного порталу" width="100" height="80">
+        <h1>Новинний портал «ВАЖЛИВІ НОВИНИ»</h1>
+        <p>Незалежне інформаційно-аналітичне видання</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="hot-news">Гарячі новини</a></li>
+            <li><a href="culture.html">Новини культури</a></li>
+            <li><a href="economy.html">Новини економіки</a></li>
+            <li><a href="feedback.html">Зворотній зв’язок</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <main>
+
+        <section id="about">
+            <h2>Про портал та мета його створення</h2>
+            <p>
+                Новинний портал «Важливі Новини» створений для надання читачам оперативної, об’єктивної та перевіреної
+                інформації про події в світі.
+            </p>
+
+            <p>
+                Наш <span>новинний портал</span> прагне надавати <b>найновішу</b>, <i>найдостовірнішу</i> та
+                <em>надзвичайно оперативну</em> інформацію <u>по всьому світу</u>.
+            </p>
+
+            <h3>Завдання для досягнення мети:</h3>
+            <ol type="A">
+                <li>Впровадження цілодобового перевірки фактів та боротьби з маніпуляціями.</li>
+                <li>Розширення мережі власного аналітичного відділу та регіональних кореспондентів.</li>
+                <li>Забезпечення безперешкодного доступу читачів до актуальних новин у сферах економіки та культури.
+                </li>
+                <li>Створення ефективного каналу діалогу з аудиторією через форму зворотного зв’язку.</li>
+            </ol>
+
+            <h3>Корисні посилання:</h3>
+            <p>
+                <b>Внутрішні посилання документу:</b><br>
+                1. <a href="#staff-table">Перейти до Таблиці працівників та джерел</a><br>
+                2. <a href="#editor">Перейти до Інформації про Головного редактора</a>
+            </p>
+            <p>
+                <b>Зовнішні ресурси:</b><br>
+                1. <a href="https://www.bbc.com/news" target="_blank">Найбільша у світі новинна організація BBC</a><br>
+                2. <a href="https://www.reuters.com" target="_blank">Міжнародне агентство новин Reuters</a>
+            </p>
+        </section>
+
+        <hr>
+
+        <section id="staff-table">
+            <h2>Загальна інформація про працівників та джерела інформації</h2>
+
+            <table>
+                <caption>Кадровий склад та первинні джерела інформації порталу</caption>
+
+                <thead>
+                    <tr>
+                        <th>Відділ / Сфера</th>
+                        <th>Посада працівника</th>
+                        <th>ПІБ працівника</th>
+                        <th>Джерела інформації</th>
+                        <th>Режим роботи</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Редакція новин</td>
+                        <td>Головний редактор</td>
+                        <td>Коваленко О. В.</td>
+                        <td>Reuters, Укрінформ</td>
+                        <td>Повний день</td>
+                    </tr>
+                    <tr>
+                        <td>Випусковий редактор</td>
+                        <td>Шевченко О. М.</td>
+                        <td>Інтерфакс-Україна</td>
+                        <td>Повний день</td>
+                    </tr>
+                    <tr>
+                        <td>Відділ культури</td>
+                        <td>Редактор культури</td>
+                        <td>Бондаренко Д. С.</td>
+                        <td colspan="2">Мінкультури, Прес-служби театрів та музеїв</td>
+                    </tr>
+                    <tr>
+                        <td>Відділ економіки</td>
+                        <td>Провідний аналітик</td>
+                        <td>Кравченко І. П.</td>
+                        <td rowspan="2">НБУ, Bloomberg, Світовий Банк</td>
+                        <td>Повний день</td>
+                    </tr>
+                    <tr>
+                        <td>Маркетинг та PR</td>
+                        <td>Маркетолог / PR-менеджер</td>
+                        <td>Ткаченко М. В.</td>
+                        <td>Часткова зайнятість</td>
+                    </tr>
+                    <tr>
+                        <td>Технічний відділ</td>
+                        <td colspan="2">Веб-розробник Мельник С. О.</td>
+                        <td>Серверні монітори, Cloudflare</td>
+                        <td>Чергування</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Загальна кількість співробітників: 18 осіб</td>
+                        <td colspan="2">Дані оновлено: 2026 рік</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <hr>
+
+        <article id="editor">
+            <h2>Інформація про Головного редактора</h2>
+            <img src="images/editor.svg" alt="Фото Головного редактора" width="200" height="200">
+            <h3>Коваленко Олександр Вікторович</h3>
+            <p><strong>Посада:</strong> Головний редактор новинного порталу «Важливі Новини».</p>
+            <p><strong>Освіта:</strong> Вища. Київський національний університет імені Тараса Шевченка, Інститут
+                журналістики (магістр журналістики).</p>
+            <p><strong>Біографія:</strong> Олександр Коваленко працює у сфері мас-медіа понад 12 років. Спеціалізується
+                на політичній та економічній аналітиці, є автором публікацій про стандарти медіаграмотності.</p>
+        </article>
+
+    </main>
+
+    <hr>
+
+    <aside>
+        <h3>Інформаційний блок</h3>
+        <p>Портал оновлюється цілодобово. Телефон гарячої лінії: +380 (44) 123-45-67</p>
+    </aside>
+
+    <hr>
+
+    <footer>
+        <h2>Контактна інформація та адреса</h2>
+        <address tabindex="0">
+            <p><strong>Адреса:</strong> м. Київ, вул. Хрещатик, буд. 1, офіс 404</p>
+            <p><strong>Контактні телефони:</strong> +380 (44) 123-45-67, +380 (44) 987-65-43</p>
+            <p><strong>Електронна пошта:</strong> info@important-news.ua</p>
+        </address>
+        <p>© 2026 Новинний портал «Важливі Новини». Всі права захищено.</p>
+    </footer>
+
+</body>
+
+</html>

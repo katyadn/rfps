@@ -1,0 +1,158 @@
+:root {
+   --wine: #6b0f1a;
+   --paper: hsl(40, 25%, 97%);
+   --ink: rgb(34, 34, 34);
+}
+
+body {
+   margin: 0;
+   font-family: "Segoe UI", Arial, sans-serif;
+   line-height: 1.6;
+   color: var(--ink);
+   background: var(--paper);
+}
+
+h1,
+h2,
+h3 {
+   font-family: Georgia, "Times New Roman", serif;
+   color: maroon;
+   line-height: 1.25;
+}
+
+h1 {
+   margin: 0;
+   font-size: 1.6rem;
+   letter-spacing: .02em;
+}
+
+h2 {
+   font-size: 1.4rem;
+   margin-top: 0;
+}
+
+hr {
+   border: 0;
+   border-top: 1px solid hsl(0, 0%, 85%);
+   margin: 0;
+}
+
+header {
+   display: grid;
+   grid-template-columns: auto 1fr;
+   column-gap: 16px;
+   align-items: center;
+   padding: 8px 24px;
+   background: white;
+   border-bottom: 3px solid var(--wine);
+}
+
+header img {
+   grid-row: span 2;
+}
+
+header p {
+   margin: 0;
+   color: hsl(0, 0%, 40%);
+}
+
+nav>ul {
+   display: grid;
+   grid-auto-flow: column;
+   gap: 4px;
+   margin: 0;
+   padding: 0 24px;
+   list-style: none;
+   background: var(--wine);
+}
+
+nav a {
+   display: block;
+   padding: 10px 14px;
+   color: white;
+   text-decoration: none;
+}
+
+nav a:hover {
+   background: rgb(140, 30, 45);
+}
+
+a[href*="http"] {
+   font-weight: 700;
+   color: var(--wine);
+}
+
+a[href^="http"] {
+   color: var(--wine);
+}
+
+main {
+   max-width: 1100px;
+   margin: 0 auto;
+   padding: 24px;
+   animation: fadeIn .8s ease-out;
+}
+
+h2+p,
+h3~p {
+   margin: .5em 0;
+}
+
+main nav form {
+   margin-top: 16px;
+}
+
+button {
+   padding: 8px 18px;
+   border: 2px solid var(--wine);
+   border-radius: 4px;
+   cursor: pointer;
+   background: white;
+   color: var(--wine);
+   font: inherit;
+}
+
+button:hover {
+   background: var(--wine);
+   color: white;
+}
+
+:focus-visible {
+   outline: 2px solid maroon;
+   outline-offset: 2px;
+}
+
+footer {
+   padding: 16px 24px;
+   text-align: center;
+   color: hsl(0, 0%, 35%);
+   border-top: 3px solid var(--wine);
+   background: white;
+}
+
+footer p {
+   margin: .3em 0;
+}
+
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+   }
+
+   to {
+      opacity: 1;
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   main {
+      animation: none;
+   }
+}
+
+@media (max-width: 640px) {
+   nav>ul {
+      grid-auto-flow: row;
+      padding: 0;
+   }
+}
