@@ -30,18 +30,21 @@ function getAverageLengthByAuthor(news) {
     let authorStats = {};
     
     // Групуємо дані: сума символів та кількість новин для кожного автора
-    news.forEach(item => {
+    let i = 0;
+    while (i < news.length) {
+        let item = news[i];
         if (!authorStats[item.author]) {
             authorStats[item.author] = { totalLength: 0, count: 0 };
         }
         authorStats[item.author].totalLength += item.textLength;
         authorStats[item.author].count += 1;
-    });
+        i++;
+    }
 
     console.log("Середня довжина повідомлення за автором:");
     for (let author in authorStats) {
         let avg = authorStats[author].totalLength / authorStats[author].count;
-        console.log(`${author}: ${avg.toFixed(2)} символів`);
+        console.log(`${author}: ${Math.round(avg)} символів`); 
     }
 }
 getAverageLengthByAuthor(newsArray);
@@ -64,14 +67,28 @@ getMaxReadersDay1Id(newsArray);
 
 // Додавання нової новини
 function addNewNews(newsList, newRecord) {
-    // Перевіряємо, чи є хоча б одне порожнє поле (undefined, null або порожній рядок)
+    // Перевіряємо типи даних і примусово (явно) перетворюємо їх на правильні
+    if (typeof newRecord.textLength === "string") {
+        newRecord.textLength = Number(newRecord.textLength);
+    }
+    if (typeof newRecord.title !== "string") {
+        newRecord.title = String(newRecord.title);
+    }
+    if (typeof newRecord.readersDay1 === "boolean") {
+        newRecord.readersDay1 = Number(newRecord.readersDay1); 
+    }
+    
+    // Перевірка об'єктних типів
+    let isDateObject = typeof newRecord.publishDate === "object";
+    let isArrayList = typeof newsList === "object";
+
     let isMissingInfo = Object.values(newRecord).some(val => val === undefined || val === null || val === '');
 
     if (isMissingInfo) {
-        newsList.push(newRecord); // Додаємо в кінець, якщо бракує інформації
+        newsList.push(newRecord);
         console.log("Новину додано в кінець списку (бракує даних).");
     } else {
-        newsList.unshift(newRecord); // Додаємо на початок, якщо вся інфа є
+        newsList.unshift(newRecord);
         console.log("Новину додано на початок списку (всі дані присутні).");
     }
 }
