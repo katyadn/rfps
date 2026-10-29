@@ -67,7 +67,7 @@ getMaxReadersDay1Id(newsArray);
 
 // Додавання нової новини
 function addNewNews(newsList, newRecord) {
-    // Перевіряємо типи даних і примусово (явно) перетворюємо їх на правильні
+    // Перевіряємо типи даних і примусово перетворюємо їх на правильні
     if (typeof newRecord.textLength === "string") {
         newRecord.textLength = Number(newRecord.textLength);
     }
@@ -94,7 +94,7 @@ function addNewNews(newsList, newRecord) {
 }
 
 // Тестуємо додавання:
-let incompleteNews = { id: 11, title: "Неповна новина", author: "Іванов І.", textLength: 500, readersDay1: null, readersDay2: 10, publishDate: new Date() };
+let incompleteNews = { id: 11, title: "Неповна новина", author: "Іванов І.", textLength: null, readersDay1: 43, readersDay2: 10, publishDate: new Date() };
 let completeNews = { id: 12, title: "Повна новина", author: "Петров П.", textLength: 1000, readersDay1: 50, readersDay2: 60, publishDate: new Date() };
 
 addNewNews(newsArray, incompleteNews);
@@ -121,3 +121,4 @@ function calculateAuthorPay(newsRecord) {
 // Тестуємо для перших двох новин
 calculateAuthorPay(newsArray[0]); // Опубліковано о 14:30 (робочий час)
 calculateAuthorPay(newsArray[1]); // Опубліковано о 09:15 (неробочий час)
+

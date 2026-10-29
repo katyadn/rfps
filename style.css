@@ -156,3 +156,78 @@ footer p {
       padding: 0;
    }
 }
+
+.dropdown-item {
+    position: relative;
+}
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 180px;
+    z-index: 100;
+}
+.submenu.active {
+    display: block;
+}
+.submenu li a {
+    display: block;
+    padding: 8px 15px;
+    color: #333;
+    text-decoration: none;
+}
+.submenu li a:hover {
+    background: #f0f0f0;
+}
+
+
+.attention-badge {
+    color: red;
+    font-weight: bold;
+    margin-left: 12px;
+    display: inline-block;
+    transform: scaleX(1.2);
+    transform-origin: left center;
+}
+
+.details-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+.tooltip-box {
+    display: none;
+    background-color: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    max-width: 260px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.nav-horizontal .nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    list-style: none;
+}
+.nav-vertical {
+    float: left;
+    width: 220px;
+    margin-right: 20px;
+}
+.nav-vertical .nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
