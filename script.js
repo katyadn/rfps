@@ -170,6 +170,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // При наведенні миші змінюємо фон, рамку, тінь і показуємо підказку
         detailField.addEventListener("mouseover", () => {
+
+            if (window.innerWidth <= 768) {
+                tooltip.style.left = "0";
+                tooltip.style.top = "100%";
+                tooltip.style.width = "100%";
+                tooltip.style.boxSizing = "border-box";
+            } else {
+                tooltip.style.left = "calc(100% + 15px)";
+                tooltip.style.top = "28px";
+                tooltip.style.width = "240px";
+            }
             detailField.style.backgroundColor = "#fff5f5";
             detailField.style.border = "2px solid #6b0f1a";
             detailField.style.boxShadow = "0 0 10px rgba(107, 15, 26, 0.5)";
@@ -191,14 +202,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const navUl = topNav.querySelector("ul");
 
         if (window.innerWidth <= 768) {
+            // Вертикальне меню ліворуч, але адаптивної ширини: від 110px до 210px
             topNav.style.float = "left";
-            topNav.style.width = "210px";
-            topNav.style.marginRight = "20px";
+            topNav.style.width = "clamp(110px, 30vw, 210px)";
+            topNav.style.marginRight = "12px";
             if (navUl) {
                 navUl.style.display = "flex";
                 navUl.style.flexDirection = "column";
-                navUl.style.alignItems = "flex-start";
+                navUl.style.alignItems = "stretch";
                 navUl.style.gap = "10px";
+                navUl.style.padding = "0";
             }
         } else {
             topNav.style.float = "none";
